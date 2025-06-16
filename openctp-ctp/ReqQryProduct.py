@@ -12,13 +12,13 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询产品
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYPRODUCT/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYPRODUCT/
         """
 
         self.print("请求查询产品")
         req = tdapi.CThostFtdcQryProductField()
         # 不传则查询所有产品
-        # req.ProductID = "ag"
+        req.ProductID = "ag"
 
         # req.ProductClass = "1"    # 不可过滤
         # req.ExchangeID = "DCE"    # 不可过滤

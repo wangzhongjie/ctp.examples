@@ -12,11 +12,13 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 报单操作请求
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQORDERACTION/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQORDERACTION/
         """
 
         self.print("报单撤销请求")
-        self.order_cancel2('SHFE', 'ao2408', 1, -533657423, '           1')
+        # self.order_cancel2('SHFE', 'cu2507', 1, -2090656969, '           1')
+        self.order_cancel2('SHFE', 'rb2510', 1, 579934492, '           1')
+        # self.order_cancel2('CFFEX', 'IF2506', 1, 1818731214, '           1')
 
     def order_cancel1(self, exchange_id: str, instrument_id: str, order_sys_id: str):
         """报单撤销请求 方式一

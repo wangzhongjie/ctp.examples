@@ -12,14 +12,14 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询合约手续费率
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENTCOMMISSIONRATE/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENTCOMMISSIONRATE/
         """
 
         self.print("请求查询合约手续费率")
         req = tdapi.CThostFtdcQryInstrumentCommissionRateField()
         req.BrokerID = self._broker_id
         req.InvestorID = self._user_id
-        req.InstrumentID = "AP410"  # 若不传，则返回持仓合约的手续费率;
+        req.InstrumentID = "i2510"  # 若不传，则返回持仓合约的手续费率;
         self._check_req(req, self._api.ReqQryInstrumentCommissionRate(req, 0))
 
     def OnRspQryInstrumentCommissionRate(self, pInstrumentCommissionRate: tdapi.CThostFtdcInstrumentCommissionRateField,

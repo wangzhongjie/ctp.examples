@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询合约保证金率
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENTMARGINRATE/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENTMARGINRATE/
         """
 
         self.print("请求查询合约保证金率")
@@ -20,7 +20,7 @@ class CTdSpi(CTdSpiBase):
         req.BrokerID = self._broker_id
         req.InvestorID = self._user_id
         req.HedgeFlag = tdapi.THOST_FTDC_HF_Speculation  # todo 不传好像不影响？
-        req.InstrumentID = "AP410"  # 若不传，则返回持仓合约的保证金率;
+        req.InstrumentID = "i2510"  # 若不传，则返回持仓合约的保证金率;
         self._check_req(req, self._api.ReqQryInstrumentMarginRate(req, 0))
 
     def OnRspQryInstrumentMarginRate(self, pInstrumentMarginRate: tdapi.CThostFtdcInstrumentMarginRateField,

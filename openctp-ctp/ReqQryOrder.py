@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询报单
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYORDER/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYORDER/
         """
 
         self.print("请求查询报单")
@@ -20,8 +20,9 @@ class CTdSpi(CTdSpiBase):
         req.BrokerID = self._broker_id
         req.InvestorID = self._user_id
         # 以下条件均可单独作为过滤条件，一个都不填，查询全部订单
-        # req.InstrumentID = "AP410"
-        # req.ExchangeID = "DCE"
+        # req.InstrumentID = "cu2507"
+        # req.InstrumentID = "i2509"
+        # req.ExchangeID = "SHFE"
         # req.OrderSysID = "         417"
         # req.InsertTimeStart = "17:00:46"
         # req.InsertTimeEnd = "17:00:43"

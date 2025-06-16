@@ -12,12 +12,14 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询银期签约关系
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYACCOUNTREGISTER/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYACCOUNTREGISTER/
         """
 
         # SimNow 不支持，需要实盘测验
         self.print("请求查询银期签约关系")
+        
         req = tdapi.CThostFtdcQryAccountregisterField()
+        req.BankId = 4
         self._check_req(req, self._api.ReqQryAccountregister(req, 0))
 
     def OnRspQryAccountregister(self, pAccountregister: tdapi.CThostFtdcAccountregisterField,

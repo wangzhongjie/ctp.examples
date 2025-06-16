@@ -12,7 +12,7 @@ class CMdSpi(CMdSpiBase):
 
     def req(self, instruments):
         """ 订阅行情
-        doc: https://ctpapi.jedore.top/6.7.2/HQJK/CTHOSTFTDCMDAPI/SUBSCRIBEMARKETDATA/
+        doc: https://ctpdoc.jedore.top/6.7.9/HQJK/CTHOSTFTDCMDAPI/SUBSCRIBEMARKETDATA/
         """
 
         self.print("订阅行情")
@@ -32,6 +32,6 @@ class CMdSpi(CMdSpiBase):
 
 if __name__ == '__main__':
     spi = CMdSpi()
-    spi.req(['CF407', 'CF409'])
+    spi.req(['IF2506'])
 
     spi.wait_last()

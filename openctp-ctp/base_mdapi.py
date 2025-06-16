@@ -19,7 +19,19 @@ import config
 
 class CMdSpiBase(mdapi.CThostFtdcMdSpi):
 
-    def __init__(self, conf=config.envs["7x24"]):
+    # def __init__(self, conf=config.envs["7x24"]):
+    # def __init__(self, conf=config.envs["电信1"]):
+    # def __init__(self, conf=config.envs["电信2"]):
+    # def __init__(self, conf=config.envs["移动"]):
+    def __init__(self, conf=config.envs["gtja电信1"]):
+    # def __init__(self, conf=config.envs["gtja电信2"]):
+    # def __init__(self, conf=config.envs["gtja电信3"]):
+    # def __init__(self, conf=config.envs["gtja联通1"]):
+    # def __init__(self, conf=config.envs["gtja联通2"]):
+    # def __init__(self, conf=config.envs["gtja联通3"]):
+    # def __init__(self, conf=config.envs["gtja内网1"]):
+    # def __init__(self, conf=config.envs["gtja内网2"]):
+    # def __init__(self, conf=config.envs["gtja内网3"]):
         super().__init__()
 
         self.print("启动行情Api")
@@ -144,7 +156,7 @@ class CMdSpiBase(mdapi.CThostFtdcMdSpi):
         self.print("行情前置连接成功")
 
         self.print("用户登录请求")
-        # 登录 doc: https://ctpapi.jedore.top/6.7.2/HQJK/CTHOSTFTDCMDAPI/REQUSERLOGIN/
+        # 登录 doc: https://ctpdoc.jedore.top/6.7.9/HQJK/CTHOSTFTDCMDAPI/REQUSERLOGIN/
         req = mdapi.CThostFtdcReqUserLoginField()
         req.BrokerID = self._broker_id
         req.UserID = self._user_id
@@ -170,7 +182,7 @@ class CMdSpiBase(mdapi.CThostFtdcMdSpi):
         print(" ---")
         print(" 交易日:", self._trading_day)
         print(" 交易系统名称:", pRspUserLogin.SystemName)
-        if openctp_ctp.__version__ > '6.6.7':
+        if openctp_ctp.__version__ > '6.7.7':
             print(" 后台版本信息:", pRspUserLogin.SysVersion)
         print(" FrontID:", self._front_id)
         print(" SessionID:", self._session_id)

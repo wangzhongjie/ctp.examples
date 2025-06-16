@@ -12,14 +12,14 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询合约
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENT/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINSTRUMENT/
         """
 
         self.print("请求查询合约")
         req = tdapi.CThostFtdcQryInstrumentField()
         # 以下四个条件均可单独作为过滤条件，返回满足所有条件的合约
         # 一个都不填，查询全部合约
-        # req.InstrumentID = "AP410"
+        req.InstrumentID = "i2510"
         # req.ExchangeID = "CFFEX"
         # req.ExchangeInstID = "zn2504"
         # req.ProductID = "zn"

@@ -12,12 +12,13 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询行情，只能查询当前快照，不能查询历史行情。
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYDEPTHMARKETDATA/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYDEPTHMARKETDATA/
         """
 
         self.print("请求查询行情，只能查询当前快照，不能查询历史行情。")
         req = tdapi.CThostFtdcQryDepthMarketDataField()
-        req.InstrumentID = 'ag2406'  # 不传则查所有合约
+        req.InstrumentID = 'i2509'  # 不传则查所有合约
+        # 貌似仿真环境，不指定合约无法查询全部行情，只能单个查询返回
         self._check_req(req, self._api.ReqQryDepthMarketData(req, 0))
 
     def OnRspQryDepthMarketData(self, pDepthMarketData: tdapi.CThostFtdcDepthMarketDataField,

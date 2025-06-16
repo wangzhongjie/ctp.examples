@@ -19,7 +19,19 @@ import config
 
 class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
-    def __init__(self, conf=config.envs["7x24"]):
+    # def __init__(self, conf=config.envs["7x24"]):
+    # def __init__(self, conf=config.envs["电信1"]):
+    # def __init__(self, conf=config.envs["电信2"]):
+    # def __init__(self, conf=config.envs["移动"]):
+    def __init__(self, conf=config.envs["gtja电信1"]):
+    # def __init__(self, conf=config.envs["gtja电信2"]):
+    # def __init__(self, conf=config.envs["gtja电信3"]):
+    # def __init__(self, conf=config.envs["gtja联通1"]):
+    # def __init__(self, conf=config.envs["gtja联通2"]):
+    # def __init__(self, conf=config.envs["gtja联通3"]):
+    # def __init__(self, conf=config.envs["gtja内网1"]):
+    # def __init__(self, conf=config.envs["gtja内网2"]):
+    # def __init__(self, conf=config.envs["gtja内网3"]):
         super().__init__()
 
         self.print("启动交易Api")
@@ -194,7 +206,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         print(" ---")
         print(" 交易日:", self._trading_day)
         print(" 交易系统名称:", pRspUserLogin.SystemName)
-        if openctp_ctp.__version__ > '6.6.7':
+        if openctp_ctp.__version__ > '6.7.7':
             print(" 后台版本信息:", pRspUserLogin.SysVersion)
 
     def wait_login(self):
@@ -210,6 +222,12 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
             if self._is_last:
                 break
         input("\n\n Enter any key to exit ...\n")
+
+    def OnRtnTrade(self, pTrade):
+        """成交通知"""
+        print(f"成交回报: InstrumentID={pTrade.InstrumentID}, Direction={pTrade.Direction},"
+            f"Price={pTrade.Price}, Volume={pTrade.Volume}")
+        # 这里可以添加您的业务逻辑
 
 
 if __name__ == "__main__":

@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询投资者持仓明细
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINVESTORPOSITIONDETAIL/
+        doc: https://ctpdoc.jedore.top/6.7.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINVESTORPOSITIONDETAIL/
         """
 
         # CTP系统根据来自交易所的成交记录生成持仓明细记录，一笔成交记录对应一条持仓明细记录。
@@ -20,7 +20,7 @@ class CTdSpi(CTdSpiBase):
         req = tdapi.CThostFtdcQryInvestorPositionDetailField()
         req.BrokerID = self._broker_id
         req.InvestorID = self._user_id
-        req.InstrumentID = 'CF407'  # 不传则查所有持仓
+        # req.InstrumentID = 'CF407'  # 不传则查所有持仓
         self._check_req(req, self._api.ReqQryInvestorPositionDetail(req, 0))
 
     def OnRspQryInvestorPositionDetail(self, pInvestorPositionDetail: tdapi.CThostFtdcInvestorPositionDetailField,
